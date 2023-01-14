@@ -38,7 +38,6 @@ fn rucksack_get_sum<R: BufRead>(rucksacks: R, round: i32) -> i32 {
         2 => {
             let mut score: i32 = 0;
             for (x, y, z) in rucksacks.lines().tuples() {
-                println!("THIS");
                 let common_str = find_common_str(
                     &mut score,
                     x.expect("Not Found"),
@@ -70,9 +69,6 @@ fn update_score(score: &mut i32, common_str: char) {
 }
 
 fn find_common_str(score: &mut i32, x: String, y: String, z: String) -> char {
-    let alphabet: Vec<char> = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        .chars()
-        .collect();
     let mut common_char: char = '0';
     x.chars().any(|c| {
         if y.contains(c) && z.contains(c) {
@@ -83,7 +79,6 @@ fn find_common_str(score: &mut i32, x: String, y: String, z: String) -> char {
     return common_char;
 }
 
-// fn rucksack_get_share_char(first_rucksack: &str, second_rucksack: &str) ->
 #[cfg(test)]
 mod tests {
     use std::{fs::File, io::BufReader};

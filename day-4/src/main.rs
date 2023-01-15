@@ -4,10 +4,6 @@ use std::{
 };
 
 fn main() {
-    let file = File::open("./input/input.txt").expect("Could not open file");
-    let reader = BufReader::new(file);
-
-    println!("Score is: {}", get_overlapping_score(reader, 2))
 }
 
 fn get_overlapping_score<R: BufRead>(tasks: R, round: i32) -> i32 {

@@ -63,8 +63,12 @@ fn parse_elves_calories(file: &str) -> Vec<Elf> {
 
     elves
 }
-fn main() {}
+fn main() {
+    let mut elves = parse_elves_calories("./input/input.txt");
+    let elf_with_most_calories = elves_with_most_calories(&mut elves, 5);
+    println!("First Elf: {:?}", elf_with_most_calories);
 
+}
 #[cfg(test)]
 mod tests {
     use crate::{elves_with_most_calories, parse_elves_calories};
